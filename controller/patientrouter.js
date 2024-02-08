@@ -1,4 +1,5 @@
 const express = require("express")
+
 const patientModel = require("../models/patientModel")
 
 const router = express.Router()
@@ -12,7 +13,10 @@ router.post("/patient_entry",async(req,res)=>{
     })
 })
 
-
+router.get("/viewall",async(req,res)=>{
+    let data = await patientModel.find()
+    res.json(data)
+})
 
 
 module.exports =router
